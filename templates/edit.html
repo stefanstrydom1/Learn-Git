@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Edit "{{ case['insured_name'] }}" {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="insured_name">Insured Name</label>
+        <input type="text" name="insured_name" placeholder="Case name"
+               class="form-control"
+               value="{{ request.form['insured_name'] or case['insured_name'] }}">
+        </input>
+    </div>
+
+    <div class="form-group">
+        <label for="layer_name">Layer Name</label>
+        <input type="text" name="layer_name" placeholder="Layer name"
+               class="form-control"
+               value="{{ request.form['layer_name'] or case['layer_name'] }}">
+        </input>
+    </div>
+
+    <div class="form-group">
+        <label for="Frequency">Frequency</label>
+        <input type="number" step = "any" name="frequency" placeholder="Frequency"
+               class="form-control"
+               value="{{ request.form['frequency'] or case['frequency'] }}">
+        </input>
+    </div>
+
+    <div class="form-group">
+        <label for="severity">Severity</label>
+        <input type="number" step="any" name="severity" placeholder="Severity"
+               class="form-control"
+               value="{{ request.form['severity'] or case['severity'] }}">
+        </input>
+    </div>
+
+    <div class="form-group">
+        <label for="target_loss_ratio">Target Loss Ratio</label>
+        <input type="number" step="any" name="target_loss_ratio" placeholder="Target Loss Ratio"
+               class="form-control"
+               value="{{ request.form['target_loss_ratio'] or case['target_loss_ratio'] }}">
+        </input>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+<hr>
+
+<form action="{{ url_for('delete', id=case['id']) }}" method="POST">
+    <input type="submit" value="Delete Post"
+            class="btn btn-danger btn-sm"
+            onclick="return confirm('Are you sure you want to delete this case?')">
+</form>
+{% endblock %}
