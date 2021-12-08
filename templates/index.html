@@ -8,11 +8,12 @@
             <th>Insured Name</th>
             <th>Created</th>
             <th>Edit</th>
+            <th>Upload</th>
         </tr>
         {% for case in cases%}
         <tr>
             <td>
-                <a href="{{ url_for('case', case_id=case['id']) }}">
+                <a href="{{ url_for('case', case_id=case['case_id']) }}">
                 <h2>{{ case['insured_name'] }}</h2>
                 </a>
             </td>
@@ -20,8 +21,13 @@
                 <span class="badge badge-primary">{{ case['created'] }}</span>
             </td>
             <td>
-                <a href="{{ url_for('edit', id=case['id']) }}">
+                <a href="{{ url_for('edit', case_id=case['case_id']) }}">
                     <span class="badge badge-warning">Edit</span>
+                </a>
+            </td>
+            <td>
+                <a href="{{ url_for('upload_claims', case_id=case['case_id']) }} ">
+                    <span class="badge badge-warning">Upload Claims</span>
                 </a>
             </td>
         </tr>
@@ -29,3 +35,5 @@
         {% endfor %}
     </table>
 {% endblock %}
+
+

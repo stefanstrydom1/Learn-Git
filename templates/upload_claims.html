@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Upload Claims "{{ case['insured_name'] }}" {% endblock %}</h1>
+
+
+
+
+<form class="" method="post">
+    <input type="file" name="upload_claims_file" value="">
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+<hr>
+
+
+
+
+{% endblock %}

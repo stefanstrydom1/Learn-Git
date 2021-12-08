@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{% block title %} Create a New Post {% endblock %}</h1>
+<h1>{% block title %} Create a New Case {% endblock %}</h1>
 
 <form method="post">
     <div class="form-group">
@@ -12,33 +12,18 @@
     </div>
 
     <div class="form-group">
-        <label for="layer_name">Layer Name</label>
-        <input type="text" name="layer_name"
-               placeholder="Layer name" class="form-control"
-               value="{{ request.form['layer_name'] }}"></input>
+        <label for="inception_date">Inception Date</label>
+        <input type="date" name="inception_date"
+               placeholder="Inception Date" class="form-control"
+               value="{{ request.form['inception_date'] }}"></input>
     </div>
 
     <div class="form-group">
-        <label for="frequency">Frequency</label>
-        <input type="number" step = "any" name="frequency"
-               placeholder="Frequency" class="form-control"
-               value="{{ request.form['frequency'] }}"></input>
+        <label for="expiry_date">Expiry Date</label>
+        <input type="date" name="expiry_date"
+               placeholder="Expiry Date" class="form-control"
+               value="{{ request.form['expiry_date'] }}"></input>
     </div>
-
-    <div class="form-group">
-        <label for="severity">Severity</label>
-        <input type="number" step = "any" name="severity"
-               placeholder="Severity" class="form-control"
-               value="{{ request.form['severity'] }}"></input>
-    </div>
-
-    <div class="form-group">
-        <label for="target_loss_ratio">Target Loss Ratio</label>
-        <input type="number" step = "any" name="target_loss_ratio"
-               placeholder="Target Loss Ratio" class="form-control"
-               value="{{ request.form['target_loss_ratio'] }}"></input>
-    </div>
-
 
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
