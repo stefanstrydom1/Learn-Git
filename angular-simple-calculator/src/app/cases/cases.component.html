@@ -1,7 +1,20 @@
-<p>cases works!</p>
+<br>
+<br>
+<br>
+<table>
+    <tr>
+        <th>Case ID</th>
+        <th>Insured Name</th>
+        <th>Created</th>
+        <th>Underwriting Year</th>
+    </tr>
+    <tr *ngFor="let case of cases_list">
+        <td>{{ case.case_id }}</td>
+        <td>{{ case.insured_name }}</td>
+        <td>{{ case.created | date: 'mediumDate' }}</td>
+    </tr>
+</table>
 
-<ul>
-    <li *ngFor="let case of cases_list">
-        {{ case.insured_name }}
-    </li>
-</ul>
+
+
+
