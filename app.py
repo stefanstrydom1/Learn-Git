@@ -1,8 +1,19 @@
-from flask import Flask, render_template, request, url_for, flash, redirect
+from flask import Flask, render_template, request, url_for, flash, redirect, jsonify
 import sqlite3
 from werkzeug.exceptions import abort
 from model import premium_calculation
 import pandas as pd
+from marshmallow import Schema, fields
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your secret key'
+
+class CaseSchema(Schema):
+    case_id = fields.Number()
+    insured_name = fields.Str()
+    created = fields.Str()
+    inception_date = fields.Str()
+    expiry_date = fields.Str()
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
@@ -22,15 +33,15 @@ def calculate_premium(frequency, severity, target_loss_ratio):
     expected_loss, technical_premium = premium_calculation(frequency, severity, target_loss_ratio)
     return expected_loss, technical_premium
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your secret key'
-
 @app.route('/')
 def index():
     conn = get_db_connection()
     cases = conn.execute('SELECT * FROM cases').fetchall()
     conn.close()
-    return render_template('index.html', cases=cases)
+
+    schema = CaseSchema(many=True)
+    cases_list = schema.dump(cases)
+    return jsonify(cases_list)
 
 @app.route('/<int:case_id>')
 def case(case_id):
