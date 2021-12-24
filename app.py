@@ -4,9 +4,11 @@ from werkzeug.exceptions import abort
 from model import premium_calculation
 import pandas as pd
 from marshmallow import Schema, fields
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
+CORS(app)
 
 class CaseSchema(Schema):
     case_id = fields.Number()
