@@ -9,6 +9,9 @@ import { InputsComponent } from './inputs/inputs.component';
 import { ParametersComponent } from './parameters/parameters.component';
 import { CalculationsComponent } from './calculations/calculations.component';
 import { SummaryComponent } from './summary/summary.component';
+import { CasesComponent } from './cases/cases.component';
+import { CasesApiService } from './cases-api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,15 @@ import { SummaryComponent } from './summary/summary.component';
     InputsComponent,
     ParametersComponent,
     CalculationsComponent,
-    SummaryComponent
+    SummaryComponent,
+    CasesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CasesApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

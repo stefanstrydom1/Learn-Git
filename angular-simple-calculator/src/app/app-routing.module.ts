@@ -6,6 +6,7 @@ import { InputsComponent } from './inputs/inputs.component';
 import { ParametersComponent } from './parameters/parameters.component';
 import { CalculationsComponent } from './calculations/calculations.component';
 import { SummaryComponent } from './summary/summary.component';
+import { CasesComponent } from './cases/cases.component';
 
 const routes: Routes = [
   { path: 'overview', component: OverviewComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'inputs', component: InputsComponent},
   { path: 'parameters', component: ParametersComponent},
   { path: 'calculations', component: CalculationsComponent},
-  { path: 'summary', component: SummaryComponent}
+  { path: 'summary', component: SummaryComponent},
+  { path: 'cases', component: CasesComponent}
 ];
 
 
