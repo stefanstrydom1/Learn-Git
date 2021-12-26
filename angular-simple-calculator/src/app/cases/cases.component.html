@@ -1,5 +1,21 @@
 <br>
 <br>
+
+<form #newCaseForm="ngForm" (ngSubmit)="onSubmit(newCaseForm.value)">
+    <label for="new-case">Case name: </label>
+    <input name = "insured_name" id="insured_name" ngModel />
+    <label>Inception date:</label>
+    <input type= "date" name = "inception_date" id="inception_date"  ngModel />
+    <label>Expiry date.</label>
+    <input type= "date" name = "expiry_date" id="expiry_date" ngModel/>
+  
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="submit" class="add-button">
+      Add case
+    </button>
+</form>
+
+
 <br>
 <table>
     <tr>

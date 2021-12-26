@@ -22,6 +22,16 @@ export class CasesComponent implements OnInit {
   getCases() {
     this.CasesApiService.getCases()
     .subscribe(cases_list => this.cases_list = cases_list)
+  }
+  
+  onSubmit(newCase: Cases): void {
+
+    console.log(newCase);
+
+    this.CasesApiService.addCase(newCase)
+    .subscribe(new_case => {this.cases_list.push(new_case)})
   } 
+
+    
 
 }
