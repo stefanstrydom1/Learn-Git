@@ -37,8 +37,12 @@ export class CasesApiService {
   }
 
   updateCase(ex_case: Cases): Observable<any> {
-    const url = `${API_URL}/edit`; /*${ex_case.case_id}*/
-    console.log(url)
+    const url = `${API_URL}/edit`;
     return this.http.put<Cases>(url, ex_case, this.httpOptions)
+  }
+
+  deleteCase(delete_case: Cases): Observable<Cases> {
+    const url = `${API_URL}/delete`;
+    return this.http.put<Cases>(url, delete_case, this.httpOptions);
   }
 }

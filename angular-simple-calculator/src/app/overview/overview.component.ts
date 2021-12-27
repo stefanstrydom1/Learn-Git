@@ -33,9 +33,14 @@ export class OverviewComponent implements OnInit {
     console.log(this.ex_case)
     if (this.ex_case) {
       this.caseApiService.updateCase(this.ex_case)
-      .subscribe(() => this.goBack())
+      .subscribe(() => this.goBack());
 
     }
+  }
+
+  deleteCase(delete_case: Cases): void {
+    this.caseApiService.deleteCase(delete_case)
+    .subscribe(() => this.goBack());
   }
 
   goBack(): void {
