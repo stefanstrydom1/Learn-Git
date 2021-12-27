@@ -1,1 +1,23 @@
-<p>overview works!</p>
+<div *ngIf="ex_case">
+    <h2>{{ex_case.insured_name}} Details</h2>
+    <div><span>Case ID: </span>{{ex_case.case_id}}</div>
+    
+    <div>
+      <label for="case-name">Case name: </label>
+      <input id="insured_name" [(ngModel)]="ex_case.insured_name" placeholder="Case name"/>
+    </div>
+
+    <div>
+        <label for="case-inception-date">Inception Date: </label>
+        <input type= "date" id="inception_date"  [(ngModel)]="ex_case.inception_date" />
+    </div>
+
+    <div>
+        <label for="case-expiry-date">Expiry Date: </label>
+        <input type= "date" id="expiry_date"  [(ngModel)]="ex_case.expiry_date" />
+    </div>
+
+    <button (click)="save()">Save</button>
+
+  </div>
+

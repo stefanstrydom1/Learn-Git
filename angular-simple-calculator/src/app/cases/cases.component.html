@@ -1,7 +1,7 @@
 <br>
 <br>
-
-<form #newCaseForm="ngForm" (ngSubmit)="onSubmit(newCaseForm.value)">
+<h2>Add a new case</h2>
+<form (ngSubmit)="onSubmit(newCaseForm.value)" #newCaseForm="ngForm" >
     <label for="new-case">Case name: </label>
     <input name = "insured_name" id="insured_name" ngModel />
     <label>Inception date:</label>
@@ -25,8 +25,13 @@
         <th>Underwriting Year</th>
     </tr>
     <tr *ngFor="let case of cases_list">
+
         <td>{{ case.case_id }}</td>
+        
+        <a routerLink="/overview/{{case.case_id}}">
         <td>{{ case.insured_name }}</td>
+        </a>
+        
         <td>{{ case.created | date: 'mediumDate' }}</td>
     </tr>
 </table>

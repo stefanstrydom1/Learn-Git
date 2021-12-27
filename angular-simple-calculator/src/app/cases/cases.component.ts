@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CasesApiService, Cases } from '../cases-api.service';
 import { Subscription } from 'rxjs';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -30,7 +31,11 @@ export class CasesComponent implements OnInit {
 
     this.CasesApiService.addCase(newCase)
     .subscribe(new_case => {this.cases_list.push(new_case)})
+
+    this.getCases()
+
   } 
+
 
     
 
